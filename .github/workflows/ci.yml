@@ -26,5 +26,11 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      - name: Corregir permisos de node_modules
+        run: sudo chown -R $USER:$USER node_modules
+
+      - name: Verificar Jest
+        run: npm list --depth=0
+
       - name: Ejecutar pruebas
         run: npm test
